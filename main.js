@@ -5,7 +5,7 @@ let time = GAME_TIME;
 let isPlaying = false;
 let timeInterval;
 let checkInterval;
-let words;
+let words =[];
 
 const wordInput = document.querySelector(".word-input");
 const wordDisplay = document.querySelector(".word-display");
@@ -13,13 +13,17 @@ const scoreDisplay = document.querySelector(".score");
 const timeDisplay = document.querySelector(".time");
 const button = document.querySelector(".button");
 
+init();
+
 function init() {
+    buttonChange('게임로딩중...');
     getWords();
     wordInput.addEventListener("input",checkMatch);
 }
 
 // 게임실행
 function run() {
+    // 게임중에 버튼 클릭방지
     if(isPlaying){
         return;
     }
@@ -44,8 +48,24 @@ function checkStatus() {
 
 // 단어 불러오는 함수
 function getWords(){
-    words = ['Hello','Banana','Apple', 'Cherry'];
-    buttonChange('게임시작');
+    // axios
+    // 지정된 ID를 가진 유저에 대한 요청
+    axios.get('https://random-word-api.herokuapp.com/word?number=100')
+    .then(function (response) {
+    // 성공 핸들링
+        response.data.forEach((word)=>{
+            if(word.length < 10) {
+                words.push(word);
+            }
+        })
+        buttonChange('게임시작');
+        console.log(words);
+    })
+    .catch(function (error) {
+    // 에러 핸들링
+    console.log(error);
+    })
+    
 }
 
 
@@ -56,7 +76,7 @@ function checkMatch() {
         // 점수 무한 증가 방지
         wordInput.value = "";
         if(!isPlaying) {
-            return 
+            return; 
         }
         score++;
         scoreDisplay.innerText = score;
@@ -66,8 +86,6 @@ function checkMatch() {
     }
 }
 
-
-buttonChange('게임시작');
 
 
 
