@@ -1,0 +1,2 @@
+# VanillaJS-typingGame
+ MiniProject
