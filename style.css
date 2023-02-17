@@ -12,8 +12,8 @@ body {
 
 .header {
     width: 100%;
-    background-color: bisque;
-    color: black;
+    background-color: green;
+    color: white;
     text-align: center;
     padding: 1rem;
 }
@@ -21,7 +21,7 @@ body {
 .word-display {
     margin-top: 3rem;
     font-size: 80px;
-    color: bisque;
+    color: green;
 }
 
 .word-input-box {
@@ -42,13 +42,15 @@ body {
 }
 
 .time, .score {
-    font-size: 30px;
+    color: green;
+    font-size: 40px;
 }
 
 .button {
     width: 200px;
     height: 35px;
-    background-color: bisque;
+    background-color: green;
+    color:  white;
     border: none;
     margin-top: 3rem;
     cursor:  pointer;
