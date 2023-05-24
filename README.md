@@ -1,5 +1,7 @@
 # VanillaJS-typingGame
- MiniProject
+ MiniProject 
+# 도메인 주소
+https://jongheon-typinggame.netlify.app
 
 # 프로젝트 설명
 게임을 시작할 경우 정해진 시간안에 주어진 단어를 작성하고 점수가 1점씩 쌓이게 되는 게임 ! </br>
